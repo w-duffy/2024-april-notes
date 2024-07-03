@@ -18,8 +18,9 @@
 - Know how to create a controlled `form` with dynamic validations (sorry, can't use the browser based form validations 🤷‍♂️)
   - This will require `useState` and `useEffect`
   - Setting form values and setting error validations as needed.
-  - Know how to use `labels`, `inputs`, and `buttons` with `forms`, and know how to disable a button conditionally.
-  - Know common `form` input `types` like `text`, `select` and `radio`
+  - Know how to use `labels`, `inputs`, and `buttons` with `forms`.
+  - Know how to disable a form submit button conditionally.
+  - Know common `form` input types like `text`, `select` and `radio`
 - Given an array of objects, know how to map over the array in the JSX block of a function component
 - Know how to declare a class on a JSX element: `className="somthing"`
 
