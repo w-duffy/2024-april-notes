@@ -15,7 +15,7 @@
 ## React
 
 - Know how to pass props and receive props in components
-- Know how to create a controlled `form` with dynamic validations (sorry, can't use the browser 🤷‍♂️)
+- Know how to create a controlled `form` with dynamic validations (sorry, can't use the browser based form validations 🤷‍♂️)
   - This will require `useState` and `useEffect`
   - Setting form values and setting error validations as needed.
   - Know how to use `labels`, `inputs`, and `buttons` with `forms`, and know how to disable a button conditionally.
@@ -30,7 +30,7 @@ We'll cover this on Friday 👍
 
 ## What should I Study?
 
-The Practice Assessment!!
+**The Practice Assessment!!**
 
 
 ![alt text](image.png)
