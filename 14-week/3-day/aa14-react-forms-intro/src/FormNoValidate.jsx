@@ -56,14 +56,16 @@ function FormNoValidate() {
             value={email}
           />
         </div>
-        <div>
+
+            <div>
           <label htmlFor="phone">Phone:</label>
           <input
             id="phone"
             type="text"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
-          />
+            />
+            {true&&(
           <select
             name="phoneType"
             onChange={(e) => setPhoneType(e.target.value)}
@@ -76,6 +78,7 @@ function FormNoValidate() {
             <option>Work</option>
             <option>Mobile</option>
           </select>
+        )}
         </div>
         <div>
           <label htmlFor="comments">Comments:</label>
