@@ -14,18 +14,22 @@ const data = [
   { someNum: 3, id: 3 },
 ];
 
-const MyCountContext = createContext();
-const useMyContext = () => useContext(MyCountContext);
+const MyContextExample = createContext();
+
+// This is me creating a custom hook.  In the components below,
+// I show using this hook, and show calling useContext passing in the context
+//directly in the components
+const useMyContext = () => useContext(MyContextExample);
 
 function MyContextProvider(props) {
   const [contextCount, setContextCount] = useState(0);
   const [userName, setUserName] = useState("Will");
   return (
-    <MyCountContext.Provider
+    <MyContextExample.Provider
       value={{ contextCount, setContextCount, userName, setUserName }}
     >
       {props.children}
-    </MyCountContext.Provider>
+    </MyContextExample.Provider>
   );
 }
 
@@ -48,12 +52,12 @@ function Layout() {
 }
 
 function IndexComponent() {
-  let { userName } = useContext(MyCountContext);
+  let { userName } = useContext(MyContextExample);
   return <h2>User is: {userName}</h2>;
 }
 
 function Counter() {
-  let { contextCount, setContextCount } = useContext(MyCountContext);
+  let { contextCount, setContextCount } = useContext(MyContextExample);
   return (
     <div>
       <button onClick={() => setContextCount(contextCount + 1)}>
