@@ -1,22 +1,48 @@
 // constant to avoid debugging typos
-const GET_ALL_TWEETS = 'tweet/getAllTweets';
+const GET_ALL_TWEETS = "tweet/getAllTweets";
 
-//regular action creator
 
 // thunk action creator
 export const getAllTweets = () => async (dispatch) => {
-    console.log("in thunk before fetch")
-    const response = await fetch('/api/tweets');
-    console.log("in thunk after fetch", response)
+  console.log("in thunk before fetch");
+
+  const response = await fetch("/api/tweets");
+
+  console.log("in thunk after fetch", response);
+
   if (response.ok) {
     const data = await response.json();
-    console.log("in thunk res.ok, data from backend:", data)
+    console.log("in thunk res.ok, data from backend:", data);
     dispatch({
-        type: GET_ALL_TWEETS,
-        tweets: data
-      });
+      type: GET_ALL_TWEETS,
+      tweets: data,
+    });
     return data;
-}
+  }
+};
+
+// regular action
+const ADD_TWEET = "tweet/addTweet";
+const addTweet = (tweet) => {
+  return {
+    type: ADD_TWEET,
+    tweet,
+  };
+};
+
+// thunk action creator
+export const createTweet = (message) => async (dispatch) => {
+  const response = await fetch(`/api/tweets`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(message),
+  });
+
+  if (response.ok) {
+    const tweet = await response.json();
+    dispatch(addTweet(tweet));
+    return tweet;
+  }
 };
 
 // state object
@@ -27,9 +53,14 @@ const tweetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_TWEETS: {
       const newState = {};
-      console.log("in tweet reducer")
+      console.log("in tweet reducer");
       action.tweets.forEach((tweet) => (newState[tweet.id] = tweet));
-      console.log("in tweet reducer; newState: ", newState)
+      console.log("in tweet reducer; newState: ", newState);
+      return newState;
+    }
+    case ADD_TWEET: {
+      const newState = { ...state };
+      newState[action.tweet.id] = action.tweet;
       return newState;
     }
     default:

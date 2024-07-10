@@ -14,5 +14,12 @@ router.get(
     res.json(tweets);
   })
 );
-
+router.post(
+    '',
+    asyncHandler(async (req, res) => {
+      const tweets = await Tweet.create(req.body);
+      res.json(tweets);
+    })
+  );
+  
 module.exports = router;
