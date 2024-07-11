@@ -23,12 +23,28 @@ Here are some of the ones you'd likely use if you want to incorporate this into 
 - Loaders are used to load data before rendering a component
 
 ```js
-import { useLoaderData } from "react-router-dom";
+// in App.jsx
+const router = createBrowserRouter([
+  {
+    path: "/albums/:id",
+    loader: async ({params}) => {
+       return fetch(`/api/albums/${params.id}`)
+    },
+    element: <SingleAlbum />,
+  },
+]);
 
-const Loader = () => {
-  const data = useLoaderData();
-  return <h1>{data.title}</h1>;
-};
+// in a component file
+import { SingleAlbum } from "react-router-dom";
+
+export function Albums() {
+  const singleAlbum = useLoaderData();
+  return(
+    <>
+      <p>{singleAlbum.title}</p>
+    </>
+  )
+}
 ```
 
 ## Actions
