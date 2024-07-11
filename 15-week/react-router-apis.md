@@ -56,7 +56,7 @@ export function Albums() {
 
 ```js
 
-// forms will be submitted to the action
+// forms will be submitted to the action defined in the router
 <Form method="post" action="/songs/123" />;
 <fetcher.Form method="put" action="/songs/123" />
 
