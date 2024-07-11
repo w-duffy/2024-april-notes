@@ -35,10 +35,37 @@ const Loader = () => {
 - Actions are used to perform an action before rendering a component
 
 ```js
-import { useActionData } from 'react-router-dom';
+export async function createTweetAction({ request }) {
+  let formData = await request.formData();
+  let data = Object.fromEntries(formData);
 
-const Action = () => {
-  const data = useActionData();
-  return <h1>{data.title}</h1>;
-};
+  let intent = formData.get("intent");
+
+  // if the intent is delete, delete the tweet
+  if (intent === "delete") {
+    const response = await fetch(`/api/tweets/${data.id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      return { message: "Successfully deleted" };
+    }
+  }
+
+  if (intent === "create") {
+  const response = await fetch(`/api/tweets`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const tweet = await response.json();
+
+    return tweet;
+  }
+  // if there was an error creating the tweet, I could handle it here
+  // return { message: "Error creating tweet" };
+}
+}
 ```
