@@ -1,6 +1,6 @@
 # React Router - Loaders and Actions
 
-The docs have examples for each of these APIs.  These are in addition to what we've learned in class `useBrowserRouter`, `RouterProvider` and `useNavigate`, for example.
+The docs have examples for each of these APIs. These are in addition to what we've learned in class `useBrowserRouter`, `RouterProvider` and `useNavigate`, for example.
 
 Here are some of the ones you'd likely use if you want to incorporate this into your App:
 
@@ -27,8 +27,8 @@ Here are some of the ones you'd likely use if you want to incorporate this into 
 const router = createBrowserRouter([
   {
     path: "/albums/:id",
-    loader: async ({params}) => {
-       return fetch(`/api/albums/${params.id}`)
+    loader: async ({ params }) => {
+      return fetch(`/api/albums/${params.id}`);
     },
     element: <SingleAlbum />,
   },
@@ -39,11 +39,11 @@ import { SingleAlbum } from "react-router-dom";
 
 export function Albums() {
   const singleAlbum = useLoaderData();
-  return(
+  return (
     <>
       <p>{singleAlbum.title}</p>
     </>
-  )
+  );
 }
 ```
 
@@ -51,16 +51,31 @@ export function Albums() {
 
 - Actions are functions that return a promise
 - Actions are used to perform an action
-- Actions are used to perform an action before rendering a component
+- Forms and fetcher.Forms will be submitted to the action
 - After the action is completed, the loaders automatically re-run to revalidate all data 🔥
 
 ```js
-import { useActionData } from "react-router-dom";
+// router
+{
+    path: "/songs/:id",
+    action: async ({ params, request }) => {
+        const res = await fetch(
+            `/api/properties/${params.id}`,
+      {
+          method: "PUT",
+        body: await request.formData(),
+      }
+    );
+    if (!res.ok) throw res;
+    return { ok: true };
+  }
+}
 
-const Action = () => {
-  const data = useActionData();
-  return <h1>{data.title}</h1>;
-};
+// forms
+<Form method="post" action="/songs" />;
+<fetcher.Form method="put" action="/songs/123/edit" />;
+
+
 ```
 
 ## useFetcher
@@ -71,7 +86,7 @@ const Action = () => {
 - Fetcher object has a useForm method that can be used to create a form
 
 ```js
-import { useFetcher } from 'react-router-dom';
+import { useFetcher } from "react-router-dom";
 
 const Fetcher = () => {
   const fetcher = useFetcher();
@@ -85,8 +100,7 @@ const Fetcher = () => {
       </fetcher.Form>
     </div>
   );
-}
-
+};
 ```
 
 ## useLoaderData
@@ -96,7 +110,7 @@ const Fetcher = () => {
 - useLoaderData is used to load data for the current route before rendering a component
 
 ```js
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
 
 const Loader = () => {
   const data = useLoaderData();
@@ -110,11 +124,7 @@ const Loader = () => {
 - The most common use-case for this hook is form validation errors. If the form isn't right, you can return the errors and let the user try again:
 
 ```js
-import {
-  useActionData,
-  Form,
-  redirect,
-} from "react-router-dom";
+import { useActionData, Form, redirect } from "react-router-dom";
 
 export default function SignUp() {
   const errors = useActionData();
@@ -146,8 +156,7 @@ export async function action({ request }) {
 
   // validate the fields
   if (typeof email !== "string" || !email.includes("@")) {
-    errors.email =
-      "That doesn't look like an email address";
+    errors.email = "That doesn't look like an email address";
   }
 
   if (typeof password !== "string" || password.length < 6) {
