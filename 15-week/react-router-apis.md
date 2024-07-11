@@ -1,6 +1,6 @@
 # React Router - Loaders and Actions
 
-The docs have examples for each of these APIs.  These are in addition to what we've learned in class `useBroserRouter` and `useNavigate`, for example.
+The docs have examples for each of these APIs.  These are in addition to what we've learned in class `useBrowserRouter`, `RouterProvider` and `useNavigate`, for example.
 
 Here are some of the ones you'd likely use if you want to incorporate this into your App:
 
