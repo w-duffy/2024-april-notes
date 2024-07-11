@@ -55,12 +55,17 @@ export function Albums() {
 - After the action is completed, the loaders automatically re-run to revalidate all data 🔥
 
 ```js
+
+// forms will be submitted to the action
+<Form method="post" action="/songs/123" />;
+<fetcher.Form method="put" action="/songs/123" />
+
 // router
 {
     path: "/songs/:id",
     action: async ({ params, request }) => {
         const res = await fetch(
-            `/api/properties/${params.id}`,
+            `/api/songs/${params.id}`,
       {
           method: "PUT",
         body: await request.formData(),
@@ -70,12 +75,6 @@ export function Albums() {
     return { ok: true };
   }
 }
-
-// forms
-<Form method="post" action="/songs" />;
-<fetcher.Form method="put" action="/songs/123/edit" />;
-
-
 ```
 
 ## useFetcher
