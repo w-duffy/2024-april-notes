@@ -1,7 +1,9 @@
-import CreateTweet from './CreateTweet';
-import TweetList from './TweetList';
+import CreateTweet from "./Tweets/CreateTweet";
+import TweetList from "./Tweets/TweetList";
+import { createTweet, tweetLoader } from "./Tweets/loadersAndActions";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-function App() {
+function Layout() {
   return (
     <>
       <TweetList />
@@ -9,6 +11,18 @@ function App() {
       <CreateTweet />
     </>
   );
+}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    loader: tweetLoader,
+    element: <Layout />,
+    action: createTweet
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;
