@@ -1,5 +1,18 @@
 # React Router - Loaders and Actions
 
+- [loader](https://reactrouter.com/en/main/route/loader)
+
+- [action](https://reactrouter.com/en/main/route/action)
+
+- [Form](https://reactrouter.com/en/main/components/form)
+
+- [useLoaderData](https://reactrouter.com/en/main/hooks/use-loader-data)
+
+- [useActionData](https://reactrouter.com/en/main/hooks/use-action-data)
+
+- [useFetcher](https://reactrouter.com/en/main/hooks/use-fetcher)
+
+
 ## Loaders
 
 - Loaders are functions that return a promise
@@ -29,17 +42,3 @@ const Action = () => {
   return <h1>{data.title}</h1>;
 };
 ```
-
-
-
-[loader](https://reactrouter.com/en/main/route/loader)
-
-[action](https://reactrouter.com/en/main/route/action)
-
-[Form](https://reactrouter.com/en/main/components/form)
-
-[useLoaderData](https://reactrouter.com/en/main/hooks/use-loader-data)
-
-[useActionData](https://reactrouter.com/en/main/hooks/use-action-data)
-
-[useFetcher](https://reactrouter.com/en/main/hooks/use-fetcher)
