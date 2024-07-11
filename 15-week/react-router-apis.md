@@ -54,7 +54,7 @@ const Action = () => {
 - Fetcher object has a Form component that can be used to create a form
 - Fetcher object has a useForm method that can be used to create a form
 
-````js
+```js
 import { useFetcher } from 'react-router-dom';
 
 const Fetcher = () => {
@@ -70,6 +70,7 @@ const Fetcher = () => {
     </div>
   );
 }
+
 ```
 
 ## useLoaderData
@@ -85,17 +86,19 @@ const Loader = () => {
   const data = useLoaderData();
   return <h1>{data.title}</h1>;
 };
-````
+```
 
 ## useActionData to handle errors
 
-- useActionData is a hook that returns the data for the current route
-- useActionData is used to fetch data for the current route
-- useActionData is used to load data for the current route before rendering a component
-- This is useful for handling errors
+- This hook provides the returned value from the previous navigation's action result, or undefined if there was no submission.
+- The most common use-case for this hook is form validation errors. If the form isn't right, you can return the errors and let the user try again:
 
 ```js
-import { useActionData, Form, redirect } from "react-router-dom";
+import {
+  useActionData,
+  Form,
+  redirect,
+} from "react-router-dom";
 
 export default function SignUp() {
   const errors = useActionData();
@@ -127,7 +130,8 @@ export async function action({ request }) {
 
   // validate the fields
   if (typeof email !== "string" || !email.includes("@")) {
-    errors.email = "That doesn't look like an email address";
+    errors.email =
+      "That doesn't look like an email address";
   }
 
   if (typeof password !== "string" || password.length < 6) {
