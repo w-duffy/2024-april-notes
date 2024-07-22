@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 ]);
 
 // in a component file
-import { SingleAlbum } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 export function Albums() {
   const singleAlbum = useLoaderData();
@@ -47,11 +47,31 @@ export function Albums() {
 }
 ```
 
+## useLoaderData
+
+- useLoaderData is a hook that returns the data for the current route
+- useLoaderData is used to fetch data for the current route
+- useLoaderData is used to load data for the current route before rendering a component
+
+```js
+import { useLoaderData } from "react-router-dom";
+
+const Loader = () => {
+  const data = useLoaderData();
+  return <h1>{data.title}</h1>;
+};
+```
+
 ## Actions
 
 - Actions are functions that return a promise
-- Actions are used to perform an action
+- Actions are used to perform an action (POST, PUT, DELETE, PATCH)
 - Forms and fetcher.Forms will be submitted to the action
+  - In the examples below, you can interchange Form with fetcher.Form in several situations.
+  - Use a fetcher.Form when you want to submit without a navigation.
+  - Use a Form when you want to submit and navigate.
+  - They both work, but fetcher.Form is more flexible, and can be used for "appy" functionality.
+  - Check the docs for more info.
 - After the action is completed, the loaders automatically re-run to revalidate all data 🔥
 
 ```js
@@ -82,7 +102,7 @@ export function Albums() {
 - useFetcher is a hook that returns a fetcher object
 - Fetcher object has a state property that can be used to check the current state of the fetcher
 - Fetcher object has a Form component that can be used to create a form
-- Fetcher object has a useForm method that can be used to create a form
+
 
 ```js
 import { useFetcher } from "react-router-dom";
@@ -102,20 +122,7 @@ const Fetcher = () => {
 };
 ```
 
-## useLoaderData
 
-- useLoaderData is a hook that returns the data for the current route
-- useLoaderData is used to fetch data for the current route
-- useLoaderData is used to load data for the current route before rendering a component
-
-```js
-import { useLoaderData } from "react-router-dom";
-
-const Loader = () => {
-  const data = useLoaderData();
-  return <h1>{data.title}</h1>;
-};
-```
 
 ## useActionData to handle errors
 
