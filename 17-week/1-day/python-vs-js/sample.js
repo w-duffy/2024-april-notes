@@ -11,14 +11,14 @@ let pythonRules = true;
 
 // multiline comments
 
-/* 
+/*
  this is a multiline
  comment
 */
 
 // Random numbers
 
-let teachers = ["Andrew", "David", "Krishna"];
+let teachers = ["Will", "Bri", "Zaviar"];
 let randomIdx = Math.floor(Math.random() * teachers.length);
 // console.log(randomIdx);
 // console.log(teachers[randomIdx]);

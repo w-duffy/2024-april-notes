@@ -13,7 +13,7 @@ python_rules = False
 # multiline strings and comments
 
 multi_line_str = """
-this is a 
+this is a
 multiline string!!!!
 """
 
@@ -26,7 +26,7 @@ comment
 
 # random numbers
 import random
-teachers = ["Andrew", "David", "Krishna"];
+teachers = ["Will", "Bri", "Zaviar"]
 random_idx = random.randint(0, len(teachers) - 1)
 # print(teachers[random_idx])
 # print(dir(random))
@@ -64,5 +64,3 @@ class Student:
 andres = Student("Andres", "a good amount")
 
 print(andres.get_student_info())
-
-
