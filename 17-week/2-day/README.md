@@ -74,16 +74,6 @@ else:
 
 ---
 
-### Boolean Practices (15 min)
-Using Not Or - 2 min
-Length of List - 2 min
-Has Remainder - 2 min
-Xor - 2 min
-DeMorgan's Law - Challenge - 10 min
-
-
----
-
 
 ## Strings
 
@@ -362,14 +352,6 @@ Due to interning, these variables can share the same identity if they have equal
 
 ---
 
-### Operators Practices (18 min)
-First Before Second - 10 min
-Equality in Python - 2 min
-Comparison in Python - 2 min
-Largest Perimeter Triangle - Challenge - 15 min
-
-
----
 
 ## Statements
 
