@@ -5,12 +5,12 @@
 ---
 
 ## Today's Topics:
-Tuples
-Ranges
-Dictionaries
-Sets
-Built in Functions
-List Comprehensions
+- Tuples
+- Ranges
+- Dictionaries
+- Sets
+- Built in Functions
+- List Comprehensions
 
 
 ---
