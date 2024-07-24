@@ -298,7 +298,7 @@ my_set = (remove_repeats(str1, str2))    # {'r', 'a', 'l', 'h', 'n', 'b', 'j', '
 # sorted_set_ls = sorted(my_set)
 sorted_set_ls = sorted(my_set, reverse=True)
 
-teachers = ["David", "keagan", "andrew", "Brad"]
+teachers = ["Will", "Bri", "Zaviar"]
 
 # print(sorted(teachers, key=str.lower))
 
