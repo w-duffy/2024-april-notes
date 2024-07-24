@@ -15,8 +15,7 @@ lst = ["hello", "world", "goodbye", "moon"]
 """
 Use range with a for loop to print the elements and indices of a list
 """
-for i in range(len(num_lst)):
-    print(i, num_lst[i])
+
 
 
 
