@@ -27,7 +27,7 @@ if []:
 # empty collections
 # None
 
-print(None == False) # False
+# print(None == False) # False
 # print(bool(None) == bool(False)) # True
 # print(None == None) # True
 # print(0 == 0.0) # True
@@ -43,7 +43,7 @@ print(None == False) # False
 
 # print("ant" > "anteater")
 
-print("A".casefold() == "a".casefold())
+# print("A".casefold() == "a".casefold())
 
 # print(False < True)
 

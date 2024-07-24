@@ -1,20 +1,35 @@
 # FUNCTIONS
 
-def get_average(num1, num2, num3):
-    """
-    Takes in three arguments and returns
-    the arithmetic mean of the numbers
-    """
-    print("i'm finding the average")
-    avg = (num1 + num2 + num3) / 3
-    return avg
 
-average_num = get_average()
-# help(get_average)
-print(average_num)
+# def get_average(num1, num2, num3):
+#     """
+#     Takes in three arguments and returns
+#     the arithmetic mean of the numbers
+#     """
+#     print("i'm finding the average")
+#     avg = (num1 + num2 + num3) / 3
+#     return avg
 
 
+# average_num = get_average()
+# # help(get_average)
+# print(average_num)
 
+
+a = "abc"
+b = "def"
+
+print(a == b)
+print(a is b)
+
+x = 1
+b = 1.0
+
+print(isinstance(x, int))
+print(isinstance(b, float))
+
+print(x == b)
+print(x is b)
 
 
 # # STRINGS
