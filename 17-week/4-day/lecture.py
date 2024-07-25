@@ -59,9 +59,10 @@ def say_hello(name):
 
 
 """
-Pseudo real world exam
+Pseudo real world example: using a decorator as middleware on a route handler.
+This example is not the exact implementation, but just a simple high level look at
+how we'll see decorators used when we're working with Python
 """
-
 
 def auth_check(route_function):
     def wrapper(req):
@@ -139,6 +140,7 @@ def ordinary():
 # # 5. Decorators that can accept arguments.
 # # This allows us to decorate functions that accept arguments.
 
+### How args and kwargs give us some flexibility
 # # def my_func(name):
 # #     print("cool")
 
@@ -147,6 +149,7 @@ def ordinary():
 # num1 = 1,
 # print(num1)
 
+## Unpacking a tuple
 # num1, num2  = 1, 2
 
 
@@ -179,17 +182,17 @@ def ordinary():
 # print(dict1["hello"])
 
 
-# class Dog():
-#     def __init__(self, name, my_woof):
-#         self.name = name
-#         self.my_woof = my_woof
-#         self.is_cute = True
+class Dog():
+    def __init__(self, name, my_woof):
+        self.name = name
+        self.my_woof = my_woof
+        self.is_cute = True
 
-#     def __repr__(self):
-#         return f"{self.name} said {self.my_woof}"
+    def __repr__(self):
+        return f"{self.name} said {self.my_woof}"
 
 
-# fido = Dog("fido")
+fido = Dog("fido")
 
 # # print("down here", fido.name)
 # print(fido)
@@ -225,8 +228,6 @@ puff = Dragon("puff", "blue")
 # print(puff.to_dict())
 
 
-
-
 # SCREAMING_CASE = "don't change this"
 
 
@@ -258,7 +259,7 @@ class User():
     def to_dict(self):
         return{
             "name": self._name,
-            "password": self._password,
+            "password": self._password, # You wouldn't want to include the password in practice; this is just for the purposes of the examples.
             "dog": self._dog
         }
 
