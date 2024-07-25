@@ -244,11 +244,14 @@ class User():
 
     @property
     def my_password(self):
-        if True: # intense hashing algo
-            self._dog = "Lucky"
+        print("getter called!")
+        if True: # hashing algo
+            return self._password
 
     @my_password.setter
     def my_password(self, new_password):
+        print("setter called!")
+        # hashing and security measures happening here
         self._password = new_password
         return "updated!"
 
@@ -263,3 +266,5 @@ will = User("will", "12345")
 
 
 print(will.to_dict())
+print(will.my_password)
+will.my_password = "abcde"
