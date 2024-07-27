@@ -39,7 +39,9 @@ In your .bashrc or .zshrc (or a .bash_aliases/.zsh_aliases), you can add somethi
 
 `alias alias-name='python ~/path/to/the/script.py`
 
-For example:
+To open your .bashrc/.zshrc, run `code ~/.bashrc` or `code ~/.zshrc`
+
+Then you can add the following lines to it assuming you've created the scripts in a folder called python-scripts with the corresponding file names example:
 
 ```shell
 alias new-repo='python ~/python-scripts/createrepo.py'
