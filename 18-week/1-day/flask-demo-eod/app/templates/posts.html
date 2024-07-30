@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+{% if page_type == "posts" %}
+  All Posts
+{% elif page_type == "user" %}
+  {{posts[0].author}}'s Posts
+{% else %}
+  Post {{posts[0].id}}
+{% endif %}
+{% endblock %}
+{% block posts %}
+{% for post in posts %}
+    <p>{{post.author}}</p>
+    <a href="/posts/{{post.id}}"><img src="{{post.image}}" style="height: 300px" /></a>
+
+    <p>{{post.caption}}</p>
+  {% endfor %}
+  {% include "footer.html" %}
+{% endblock %}
