@@ -12,7 +12,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False, unique=True)
-    
+
     posts = db.relationship("Post", back_populates="author")
     liked_posts = db.relationship("Post", secondary="likes", back_populates="user_likes")
 
@@ -20,4 +20,11 @@ class User(db.Model):
         return {
             "id": self.id,
             "name": self.name
+        }
+
+    def to_dict_with_posts(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "posts": [post.to_dict_basic() for post in self.posts]
         }

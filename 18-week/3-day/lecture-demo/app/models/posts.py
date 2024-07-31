@@ -22,3 +22,7 @@ class Post(db.Model):
             "image": self.image,
             "date": self.created_at
         }
+    def to_dict_basic(self):
+        return {
+            "caption": self.caption,
+        }
