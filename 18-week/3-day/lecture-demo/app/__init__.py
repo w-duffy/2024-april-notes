@@ -34,7 +34,8 @@ def get_user(id):
 # CREATE new
 @app.route("/new")
 def create_user():
-    new_user = User({"name": "will2"})
+    # Object takes in kwargs
+    new_user = User(name="will")
     print(new_user)
     db.session.add(new_user)
     db.session.commit()
@@ -49,6 +50,7 @@ def update_user(id):
     user.name = "new name"
     db.session.commit()
     return user.to_dict()
+
 
 @app.route("/delete/<int:id>")
 def delete_user(id):
