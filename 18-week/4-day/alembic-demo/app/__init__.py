@@ -3,14 +3,16 @@ from .config import Config
 # from .posts import posts
 from .routes.post_routes import posts
 from .routes.user_routes import users
-from .models import db, User, Post
+# from .models import db, User, Post
 from flask_migrate import Migrate
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 # print(__name__)
 app.config.from_object(Config)
-db.init_app(app)
+db = SQLAlchemy(app)
+
+# db.init_app(app)
 
 Migrate(app, db)
 
