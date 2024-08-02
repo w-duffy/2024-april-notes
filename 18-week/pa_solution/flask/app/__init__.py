@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from .config import Configuration
 from .routes import simple
 from .models import db
-# from .forms import SimpleForm # uncomment if you declare Form here
+# from .forms import SimpleForm # uncomment if you declare routes here
 
 app = Flask(__name__)
 app.config.from_object(Configuration)
@@ -14,6 +14,7 @@ Migrate(app, db)
 
 
 # Don't need a blueprint if you put everything in the same file 🧠
+# That said, on the projectin Mod 6, we will have a blueprint for each route
 
 # @app.route("/")
 # def main_page():
