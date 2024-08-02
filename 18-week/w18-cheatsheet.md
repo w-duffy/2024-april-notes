@@ -13,7 +13,7 @@ Or, a better approach is to copy the list of dependencies into a .txt file, and 
 
 from flask import Flask, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
-from .models import db, ModelName
+from .models import db, ModelName # assuming you have a class called ModelName in a file called models.py and a variable called db in the same file
 from .config import Configuration  # assuming you have a class called Configuration in a file called config.py
 from .forms import FormName # assuming you have a form class called FormName in a file called forms.py
 from flask_migrate import Migrate
