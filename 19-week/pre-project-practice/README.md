@@ -10,9 +10,9 @@ Create API endpoints in your flask app that you'll make requests to from your fr
 
 **Start with hardcoded API responses**
 
-The goal is just to see the flow of data and to work as a team.
+The goal is just to see the flow of data and to work as a team collaborating on a single GitHub Repo.
 
-## Use
+
 
 ## Bonus
 
