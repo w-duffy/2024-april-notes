@@ -10,5 +10,3 @@ export default defineConfig({
     }
 }
 })
-
-wd/create_spots
