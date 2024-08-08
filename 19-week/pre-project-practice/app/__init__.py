@@ -5,9 +5,9 @@ from app.aws import ImageForm, get_unique_filename, upload_file_to_s3
 from .config import Configuration
 
 # from .routes import simple
+# from .forms import SimpleForm
 from .models import Image, db, Movie, Actor
 from .seeds import seed_commands
-# from .forms import SimpleForm # uncomment if you declare routes here
 
 app = Flask(__name__)
 
@@ -21,8 +21,7 @@ db.init_app(app)
 Migrate(app, db)
 
 
-# Don't need a blueprint if you put everything in the same file 🧠
-# That said, on the projectin Mod 6, we will have a blueprint for each route
+
 
 
 @app.route("/api")
@@ -68,9 +67,6 @@ def upload_image():
     db.session.commit()
     return {"image": new_image.to_dict()}, 201
 
-    # if form.errors:
-    #     return {"oopsie": "you goofed"}, 400
-    # return {"hello": "world"}
 
 @app.route("/api/error")
 def error():
@@ -80,23 +76,6 @@ def error():
     return {"message": "you goofed"}, 400
 
 
-# @app.route("/simple-form")
-# def simple_form():
-#     form = SimpleForm()
-#     return render_template("simple_form.html", form=form)
-
-
-# @app.route("/simple-form", methods=["POST"])
-# def simple_data():
-#     form = SimpleForm()
-#     if form.validate_on_submit():
-#         data = SimplePerson()
-#         form.populate_obj(data)
-#         db.session.add(data)
-#         db.session.commit()
-#         return redirect("/")
-#     print(form.errors)
-#     return "Bad Data"
 
 
 # @app.route("/simple-form-data")
